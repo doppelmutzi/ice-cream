@@ -4,15 +4,18 @@
     "private": true,
     "devDependencies": {
         "babel-eslint": "^8.2.2",
+        "babel-preset-flow": "^6.23.0",
         "eslint": "^4.18.1",
         "eslint-config-prettier": "^2.9.0",
         "eslint-plugin-flowtype": "^2.45.0",
         "eslint-plugin-prettier": "^2.6.0",
         "eslint-plugin-react": "^7.7.0",
         "eslint-plugin-standard": "^3.0.1",
+        "flow-bin": "0.56.0",
         "jest-expo": "25.0.0",
         "prettier": "^1.10.2",
         "react-devtools": "^3.1.0",
+        "react-native-router-flux": "^4.0.0-beta.28",
         "react-native-scripts": "1.11.1",
         "react-test-renderer": "16.2.0"
     },
@@ -26,7 +29,11 @@
         "dev-tools": "react-devtools",
         "lint": "eslint --ext .js .",
         "lint-autofix": "eslint --ext .js . --fix",
-        "lint-check": "eslint --print-config .eslintrc.json | eslint-config-prettier-check"
+        "lint-check": "eslint --print-config .eslintrc.json | eslint-config-prettier-check",
+        "flow-start": "flow start",
+        "flow-stop": "flow stop",
+        "flow-status": "flow status",
+        "flow-coverage": "flow coverage"
     },
     "jest": {
         "preset": "jest-expo"

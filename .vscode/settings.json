@@ -2,5 +2,8 @@
   "files.associations": {
     "*.jsx": "javascriptreact",
     "*.js": "javascriptreact"
-  }
+  },
+  "flow.useNPMPackagedFlow": false,
+  "javascript.validate.enable": false,
+  "flow.enabled": false
 }
