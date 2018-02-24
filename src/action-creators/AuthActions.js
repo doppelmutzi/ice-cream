@@ -1,8 +1,15 @@
-import * as actionTypes from "./types";
+import { USERNAME_CHANGED, PASSWORD_CHANGED } from "./types";
 
-export default (userName, password) => {
+export const usernameChanged = username => {
   return {
-    type: actionTypes.LOGIN,
-    credentials: { userName, password }
+    type: USERNAME_CHANGED,
+    username
+  };
+};
+
+export const passwordChanged = password => {
+  return {
+    type: PASSWORD_CHANGED,
+    password
   };
 };
