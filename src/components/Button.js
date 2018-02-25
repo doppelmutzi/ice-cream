@@ -5,29 +5,36 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 export default class Button extends Component {
   render() {
     const { buttonStyle, textStyle } = styles;
-    const { children } = this.props;
-    const customStyles = this.props.style;
+    const { children, style, onPress } = this.props;
     return (
-      <TouchableOpacity style={buttonStyle}>
-        <Text style={[textStyle, customStyles]}>{children}</Text>
+      <TouchableOpacity style={[buttonStyle, style]} onPress={onPress}>
+        <Text style={[textStyle]}>{children}</Text>
       </TouchableOpacity>
     );
   }
 }
 
 Button.propTypes = {
-  label: PropTypes.string.isRequired,
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
+  onPress: PropTypes.func.isRequired,
   style: PropTypes.object
 };
 
+const color = "#42aaf4";
+
 const styles = StyleSheet.create({
   buttonStyle: {
-    backgroundColor: "lightblue",
+    height: 40,
+    backgroundColor: "#fff",
+    borderColor: color,
+    borderWidth: 1,
+    borderRadius: 5,
     alignItems: "center",
     justifyContent: "center"
   },
   textStyle: {
-    alignSelf: "center"
+    color: color,
+    alignSelf: "center",
+    fontSize: 18
   }
 });

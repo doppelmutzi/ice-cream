@@ -7,11 +7,12 @@ const Input = ({
   value,
   onChangeText,
   placeholder,
-  hideText = false
+  hideText = false,
+  style
 }) => {
   const { containerStyles, inputStyles, labelStyles } = styles;
   return (
-    <View style={containerStyles}>
+    <View style={[containerStyles, style]}>
       <Text style={labelStyles}>{label}</Text>
       <TextInput
         style={[inputStyles]}
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     height: 40,
     alignItems: "center",
-    borderWidth: 1,
+    borderBottomWidth: 1,
     borderColor: "#ccc",
     backgroundColor: "#fff"
   },
@@ -54,7 +55,8 @@ Input.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
   hideText: PropTypes.bool,
-  onChangeText: PropTypes.func.isRequired
+  onChangeText: PropTypes.func.isRequired,
+  style: PropTypes.object
 };
 
 export default Input;
