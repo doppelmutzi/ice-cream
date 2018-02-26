@@ -32,7 +32,7 @@ const loginSuccess = ({ dispatch, user }) => {
     type: LOGIN_SUCCESS,
     user
   });
-  Actions.iceCreamList();
+  Actions.main();
 };
 
 export const loginButtonPressed = (username, password) => {
