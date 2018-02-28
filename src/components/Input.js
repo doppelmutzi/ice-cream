@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StyleSheet, TextInput, Text, View, Platform } from "react-native";
+import { StyleSheet, TextInput, Text, View } from "react-native";
 
 const Input = ({
   label,
@@ -42,10 +42,7 @@ const styles = StyleSheet.create({
     paddingRight: 5,
     paddingLeft: 5,
     lineHeight: 23,
-    flex: 2,
-    ...Platform.select({
-      android: {}
-    })
+    flex: 2
   },
   labelStyles: {
     paddingLeft: 20,
