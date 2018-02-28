@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StyleSheet, TextInput, Text, View } from "react-native";
+import { StyleSheet, TextInput, Text, View, Platform } from "react-native";
 
 const Input = ({
   label,
@@ -21,6 +21,7 @@ const Input = ({
         autoCorrect={false}
         placeholder={placeholder}
         secureTextEntry={hideText}
+        underlineColorAndroid="transparent"
       />
     </View>
   );
@@ -41,7 +42,10 @@ const styles = StyleSheet.create({
     paddingRight: 5,
     paddingLeft: 5,
     lineHeight: 23,
-    flex: 2
+    flex: 2,
+    ...Platform.select({
+      android: {}
+    })
   },
   labelStyles: {
     paddingLeft: 20,
