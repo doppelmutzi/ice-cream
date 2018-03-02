@@ -1,3 +1,4 @@
+import { REHYDRATE } from "redux-persist/constants";
 import {
   USERNAME_CHANGED,
   PASSWORD_CHANGED,
@@ -16,29 +17,26 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case REHYDRATE:
+      const { username } = action.payload.auth;
+      console.log(action.payload.auth);
+      return { username, password: "" };
     case USERNAME_CHANGED:
       return { ...state, username: action.username };
-      break;
     case PASSWORD_CHANGED:
       return { ...state, password: action.password };
-      break;
     case LOGIN_USER:
-      console.log("LOGIN_USER");
       return { ...state, loading: true };
-      break;
     case LOGIN_SUCCESS:
-      console.log("LOGIN_SUCCESS");
+      console.log(state);
       return {
         ...state,
         user: action.user,
         loading: false,
-        username: "",
         password: ""
       };
-      break;
     case LOGIN_ERROR:
       return { ...state, loading: false };
-      break;
     default:
       return state;
   }

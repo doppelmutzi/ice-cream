@@ -1,25 +1,20 @@
 import React from "react";
-import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import ReduxThunkMiddleware from "redux-thunk";
-import { Actions } from "react-native-router-flux";
 import { Platform } from "react-native";
+import { Actions, Scene, Router } from "react-native-router-flux";
 
-import reducers from "./src/reducers";
-import { Scene, Router } from "react-native-router-flux";
+import store from "./src/store";
 import LoginForm from "./src/LoginForm";
 import IceCreamList from "./src/IceCreamList";
 import OrderIceCream from "./src/OrderIceCream";
 
 export default class App extends React.Component {
   render() {
-    const prePopulatedState = {};
-    const storeEnhancer = applyMiddleware(ReduxThunkMiddleware);
     const loginFormTitle = "Anmelden";
     const iceCreamListTitle = "Eis Auswahl";
     const orderIceCreamTitle = "Eis bestellen";
     const navigateToOrderButtonText = "bestellen";
-    let conditionalTitleStyle =
+    let androidSpecificProps =
       Platform.OS === "android"
         ? {
             titleStyle: {
@@ -31,7 +26,7 @@ export default class App extends React.Component {
           }
         : {};
     return (
-      <Provider store={createStore(reducers, prePopulatedState, storeEnhancer)}>
+      <Provider store={store}>
         <Router>
           <Scene key="root" hideNavBar>
             <Scene key="auth">
@@ -39,7 +34,7 @@ export default class App extends React.Component {
                 key="login"
                 component={LoginForm}
                 title={loginFormTitle}
-                {...conditionalTitleStyle}
+                {...androidSpecificProps}
               />
             </Scene>
             <Scene key="main">
