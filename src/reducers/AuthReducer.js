@@ -18,8 +18,11 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case REHYDRATE:
-      const { username } = action.payload.auth;
-      console.log(action.payload.auth);
+      console.log(action);
+      let username = "";
+      if (typeof action.payload.auth !== "undefined") {
+        username = action.payload.auth.username;
+      }
       return { username, password: "" };
     case USERNAME_CHANGED:
       return { ...state, username: action.username };
@@ -28,7 +31,6 @@ export default (state = INITIAL_STATE, action) => {
     case LOGIN_USER:
       return { ...state, loading: true };
     case LOGIN_SUCCESS:
-      console.log(state);
       return {
         ...state,
         user: action.user,
