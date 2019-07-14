@@ -1,0 +1,18 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "main": "server.js",
+    "author": "Sebastian Weber",
+    "license": "MIT",
+    "scripts": {
+        "start": "nodemon server.js",
+        "mongod": "mongod --port 27017 --dbpath=/Users/sweber/data/db"
+    },
+    "devDependencies": {
+        "nodemon": "^1.17.1"
+    },
+    "dependencies": {
+        "express": "^4.16.2",
+        "mongoose": "^5.0.8"
+    }
+}
